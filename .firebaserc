@@ -1,0 +1,6 @@
+{
+  "projects": {
+    "staging": "hapi-99baf",
+    "default": "hapi-99baf"
+  }
+}

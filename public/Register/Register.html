@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Hapi</title>
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        <link rel="stylesheet" href = "register.css">
+        <link rel="icon" href="https://firebasestorage.googleapis.com/v0/b/hapi-99baf.appspot.com/o/favicon.ico?alt=media&token=1d8a7ef2-e980-430b-98a8-880d16572e4f" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>
+        
+    </head>
+
+    <body class="body-wrapper" style = "padding:0;">
+
+    <nav id="navbar" class="large navbar main-nav fixed-top navbar-expand-lg" style="margin:0;">
+        <div class="container">
+            <a class="navbar-brand" href="/Register"><img src="https://firebasestorage.googleapis.com/v0/b/hapi-99baf.appspot.com/o/Logopit_1529654893929.png?alt=media&token=011db714-3faa-44c0-80b2-42c69e69d6b4" alt="logo" width="130" height="60"></a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link scrollTo" href="#login" style='font-size: 20px;'>Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link scrollTo" href="#about" style='font-size: 20px;'>About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link scrollTo" href="#feature" style='font-size: 20px;'>Features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link scrollTo" href="#team" style='font-size: 20px;'>Team</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!--=====================================
+    =            Homepage Banner            =
+    ======================================-->
+
+    <section class="banner bg-1" id="home">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 align-self-center">
+                    <!-- Contents -->
+                    <div class="content-block">
+                        <h1>A Diary To Track Your Life</h1>
+                        <h5>Track everything in your life with a simple way</h5>
+                        <!-- App Badge -->
+                        <div class="app-badge">
+                            <ul class="list-inline">
+                                <li class="list-inline-item">
+                                    <a href=""><img class="img-fluid" src="https://firebasestorage.googleapis.com/v0/b/hapi-99baf.appspot.com/o/google-play.png?alt=media&token=04b14225-041a-41e3-a9a0-d9a9ed17343b" alt="google-play"></a>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a href=""><img class="img-fluid" src="https://firebasestorage.googleapis.com/v0/b/hapi-99baf.appspot.com/o/app-store.png?alt=media&token=86a54d3f-5a62-449d-a596-5d8ca44f0e4b" alt="app-store"></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <!-- App Image -->
+                    <div class="image-block">
+                        <img class="img-fluid" src="https://firebasestorage.googleapis.com/v0/b/hapi-99baf.appspot.com/o/iphone-banner.png?alt=media&token=8168a108-f095-4d22-99d8-c7f45707e13d" alt="iphone-banner">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--====  End of Homepage Banner  ====-->
+
+
+    <!--=====================================
+    =            Login / Register           =
+    ======================================-->
+
+    <section class="banner bg-4" id="login">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                    <div class="section-title">
+                        <h2>Login / Register</h2>
+                    </div>
+                    <div class="panel panel-login">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    <a class="active" id="login-form-link">Login</a>
+                                </div>
+                                <div class="col-xs-6">
+                                    <a id="register-form-link">Register</a>
+                                </div>
+                            </div>
+                            <hr>
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <form onsubmit="return false" id="login-form" role="form" style="display: block;">
+                                        <div class="form-group">
+                                            <input type="text" name="username" id="txtUsername" tabindex="1" class="form-control" placeholder="Username" value="">
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="password" name="password" id="txtPassword" tabindex="2" class="form-control" placeholder="Password"><span id="loginError"></span>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <div class="col-sm-6 col-sm-offset-3">
+                                                    <input onsubmit="return false" type="submit" name="login-submit" id="btnLogin" tabindex="4" class="form-control btn btn-login" value="Log In">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                    <form onsubmit="return false" id="register-form" role="form" style="display: none;">
+                                        <div class="form-group">
+                                            <input type="text" name="username" id="txtUsernameR" tabindex="1" class="form-control" placeholder="Username" value=""><span id="usernameMsg"></span>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" name="email" id="txtEmail" tabindex="1" class="form-control" placeholder="Email Address" value=""><span id="emailMsg"></span>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="password" name="password" id="txtPasswordR" tabindex="2" class="form-control" placeholder="Password"><span id="passwordMsg"></span>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="password" name="confirm-password" id="txtPasswordConfirmR" tabindex="2" class="form-control" placeholder="Confirm Password"><span id="passwordCMsg"></span>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <div class="col-sm-6 col-sm-offset-3">
+                                                    <input onsubmit="return false" type="submit" name="register-submit" id="btnSignUp" tabindex="4" class="form-control btn btn-register" value="Register Now">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--====  End of Login / Register ====-->
+
+    <!--==============================
+    =            About            =
+    ===============================-->
+
+    <section class="section feature bg-4" id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-title">
+                        <h2>About</h2>
+                        <p>According to the University of Rochester, "[...] if you struggle with stress, depression, or anxiety, keeping a journal can help you gain control of your emotions and improve your mental health." In this app, users can track their life by creating diary entries. These entries will be analyzed by a neural network which, in turn, will show users an analysis of their entries and how they feel about objects mentioned in their entries with an overall analysis of the object and an individual analysis of the object within each entry. This app also recommends activities to strength relationsihps with people mentioned within journal entries. A mobile app is available for iOS and Android which allows users to create journal entries on the go.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--====  End of Features  ====-->
+
+    <!--=================================
+    =            Promo Video            =
+    ==================================-->
+
+<section class="about section bg-4" id="video">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <!-- Promo Video -->
+                <div class="embed-responsive embed-responsive-16by9">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/N6V3LOCrT3o" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+    <!--====  End of Promo Video  ====-->
+
+    <!--===========================
+    =            Features            =
+    ============================-->
+
+    <section class="about section bg-4" id="feature">
+        <div class="container">
+            <div class="row">
+                    <div class="section-title">
+                        <h2 style="color:#5e5e5e;">Features</h2>
+                    </div>
+
+
+                <div class="col-lg-5 mr-auto">
+                    <!-- Image Content -->
+                    <div class="image-block">
+                        <img src="https://firebasestorage.googleapis.com/v0/b/hapi-99baf.appspot.com/o/iphone-feature.png?alt=media&token=0031d1a7-0d00-4b0a-bb47-d3c78dba2791" alt="iphone-feature" class="img-fluid">
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-10 m-md-auto align-self-center ml-auto">
+                    <div class="about-block">
+                        <!-- About 01 -->
+                        <div class="about-item">
+                            <div class="icon">
+                                <i class="tf-ion-ios-paper-outline"></i>
+                            </div>
+                            <div class="content">
+                                <h5>Accurate Analysis</h5>
+                                <p>The analysis of objects in entries is accurate and correctly reflects the emotions of users to a specific object.</p>
+                            </div>
+                        </div>
+                        <!-- About 02 -->
+                        <div class="about-item active">
+                            <div class="icon">
+                                <i class="tf-globe"></i>
+                            </div>
+                            <div class="content">
+                                <h5>Easy to Use</h5>
+                                <p>Entering a journal is as simple as adding a title and entry, then clicking post.</p>
+                            </div>
+                        </div>
+                        <!-- About 03 -->
+                        <div class="about-item">
+                            <div class="icon">
+                                <i class="tf-circle-compass"></i>
+                            </div>
+                            <div class="content">
+                                <h5>Secure</h5>
+                                <p>Passwords are encrypted with the SHA256 encryption algorithm and entries are only available to users that are logged in.</p>
+                            </div>
+                        </div>
+
+                        <!-- About 04-->
+                        <div class="about-item active">
+                            <div class="icon">
+                                <i class="tf-globe"></i>
+                            </div>
+                            <div class="content">
+                                <h5>Improves Social Life</h5>
+                                <p>This app will give you recommendations on how to strengthen your relationship with people mentioned in journal entries.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--==========================
+    =            Team            =
+    ===========================-->
+
+    
+<section class="section team bg-shape-two" id="team">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="section-title">
+                    <h2>Our Creative Team</h2>
+                    <p>"Pychological depression is a social injustice that affects all walks of life. We hope our application will make a positive impact on the lives of others and potentially change the world."</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-3 col-md-6">
+                <!-- Team Member -->
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <!-- Team Member -->
+<div class="team-member text-center">
+    <div class="image">
+        <img style="width:155px;height:155px;" class="img-fluid" src="https://firebasestorage.googleapis.com/v0/b/hapi-99baf.appspot.com/o/FinalProfileV3.jpg?alt=media&token=5747c37b-6bb9-4f03-a200-235eaed95022" alt="team-member">
+    </div>
+    <div class="name">
+        <h5>Deepak Ramalingam</h5>
+    </div>
+    <div class="position">
+        <p>CEO and Lead Developer</p>
+    </div>
+<!--     <ul class="social-icons list-inline">
+        <li class="list-inline-item">
+            <a href=""><i class="tf-ion-social-facebook"></i></a>
+        </li>
+        <li class="list-inline-item">
+            <a href=""><i class="tf-ion-social-twitter"></i></a>
+        </li>
+        <li class="list-inline-item">
+            <a href=""><i class="tf-ion-social-linkedin"></i></a>
+        </li>
+        <li class="list-inline-item">
+            <a href=""><i class="tf-ion-social-instagram-outline"></i></a>
+        </li>
+    </ul> -->
+</div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <!-- Team Member -->
+<div class="team-member text-center">
+    <div class="image">
+        <img style="width:155px;height:155px;" class="img-fluid" src="https://firebasestorage.googleapis.com/v0/b/hapi-99baf.appspot.com/o/img-20140622-0001-copy.png?alt=media&token=e34aaadb-0456-4adb-9755-e85848b1814d" alt="team-member">
+    </div>
+    <div class="name">
+        <h5>Jasmine Lee</h5>
+    </div>
+    <div class="position">
+        <p>Public Relations Manager</p>
+    </div>
+<!--     <ul class="social-icons list-inline">
+        <li class="list-inline-item">
+            <a href=""><i class="tf-ion-social-facebook"></i></a>
+        </li>
+        <li class="list-inline-item">
+            <a href=""><i class="tf-ion-social-twitter"></i></a>
+        </li>
+        <li class="list-inline-item">
+            <a href=""><i class="tf-ion-social-linkedin"></i></a>
+        </li>
+        <li class="list-inline-item">
+            <a href=""><i class="tf-ion-social-instagram-outline"></i></a>
+        </li>
+    </ul> -->
+</div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!--====  End of Team  ====-->
+
+    <!--==========================
+    =            Team            =
+    ===========================-->
+
+
+    <section class="section team bg-shape-two" id="news">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-title">
+                        <h2>In the News</h2>
+                        <p style="font-size:25px;">First Place Winner of the 2018 Cupertino Library Teen App Challenge:</p>
+                        <div style="margin-top: 10px;">
+                            <a style="font-size:20px;" href="https://patch.com/california/cupertino/cupertino-winners-teen-app-design-challenge-announced">https://patch.com/california/cupertino/cupertino-winners-teen-app-design-challenge-announced</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--====  End of Team  ====-->
+
+
+    <!--====  End of About  ====-->
+
+    <!--============================
+    =            Footer            =
+    =============================-->
+
+    <footer class="footer-main">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 mr-auto">
+                    <div class="footer-logo">
+                        <img src="https://firebasestorage.googleapis.com/v0/b/hapi-99baf.appspot.com/o/Logopit_1529654893929.png?alt=media&token=011db714-3faa-44c0-80b2-42c69e69d6b4" alt="footer-logo" width="130" height="60">
+                    </div>
+                    <div class="copyright">
+                        <p>@2018 Hapi All Rights Reserved  |  Webmaster : Deepak Ramalingam
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="register.js"></script>
+
+    </body>
+</html>
+

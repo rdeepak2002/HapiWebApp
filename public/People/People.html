@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="refresh" content="300">
+    <title>Hapi</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href = "people.css">
+    <link rel="icon" href="https://firebasestorage.googleapis.com/v0/b/hapi-99baf.appspot.com/o/favicon.ico?alt=media&token=1d8a7ef2-e980-430b-98a8-880d16572e4f" />
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" rel="stylesheet">
+    <script src="https://d3js.org/d3.v3.min.js"></script>
+    <script src="RadarChart.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>
+</head>
+
+<img style="position:absolute; z-index:-1; object-fit: cover; width:100%; height:100%;" id="bgImageB" src="https://assets.awwwards.com/assets/images/nophoto.png">
+
+
+<body>
+    <!--=====================================
+    =            Hamburger Menu             =
+    ======================================-->
+    <nav role="navigation">
+        <div id="menuToggle">
+            <input type="checkbox" />
+            <span></span>
+            <span></span>
+            <span></span>
+            <ul id="menu">
+                <a onclick='window.top.location.href = "/Home";' class="clickable"><li>Entries</li></a>
+                <a onclick='window.top.location.href = "/Dashboard";' class="clickable"><li>Analysis</li></a>
+                <a onclick='window.top.location.href = "/People";' class="clickable"><li>People</li></a>
+                <a onclick='window.top.location.href = "/Relax";' class="clickable"><li>Relax</li></a>
+                <a onclick='window.top.location.href = "/Settings";' class="clickable"><li>Settings</li></a>
+                <a onclick='window.top.location.href = "/Register";' class="clickable"><li>Log Out</li></a>
+            </ul>
+        </div>
+    </nav>
+
+    <div id="hide">
+        <!--=====================================
+        =            Profile Circle             =
+        ======================================-->
+        <div class="container">
+            <div class="row">
+                <div class="profile-header-container">
+                    <div class="profile-header-img">
+                        <img class="img-circle" src="https://images-na.ssl-images-amazon.com/images/I/31yKg%2B0tevL._SX425_.jpg" />
+                        <!-- badge -->
+                        <div class="rank-label-container">
+                            <span id = "username" class="label label-default rank-label">user</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="container taskView">
+<!--             <div class="center">
+                <button type="submit" onclick="getRecommendation()" class="btn btn-primary recommendBtn">Recommend</button>
+                <div class="recommendationResult"></div>
+            </div> -->
+                        <div class="col-md-12">
+                          <div class="col-md-6 col-md-offset-3 wow fadeInDown" align="center" data-wow-delay="0.3s">
+                            <div class="col-md-12 card-header">
+                              <input type="text" id="input" placeholder="Add Task and Press ENTER">
+                              <button class="btn btn-primary" id="btn-add">Add</button>
+                              <br></br>
+                              <button class="btn btn-primary" id="btn-recommend">Recommend</button>
+                            </div>
+                          </div>
+                          <div class="col-md-6 col-md-offset-3">
+                            <div class="col-md-12 card list-div wow fadeInUp" align="left" data-wow-delay="0.6s">
+                              <ul id="list" class="wow fadeIn" data-wow-delay="0.8s">
+                                <p class="removeThisMsg">As you type about people in your journals, you can receive recommended tasks to improve your relationship with them</p>
+                              </ul>
+                              <p class="no-ul-message" id="message">
+                                <span class="fa fa-hand-peace-o"></span>&nbsp;&nbsp;Wohoo! All tasks are cleared!!
+                              </p>
+                              <div class="col-md-12 card-footer hvr-sweep-to-right">
+                                <div class="col-sm-6" align="left">
+                                </div>
+                                <div class="col-sm-6 markdone-div" align="right">
+ 
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+        </div>
+
+        <!--=====================================
+        =            Overall Stats              =
+        ======================================-->
+        <div class='overallStatsContainer'>
+
+        </div>
+    </div>
+<script type="text/javascript" src="drawRadar.js"></script>
+<script src="people.js"></script>
+</body>
+</html>

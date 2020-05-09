@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Hapi</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href = "settings.css">
+    <link rel="icon" href="https://firebasestorage.googleapis.com/v0/b/hapi-99baf.appspot.com/o/favicon.ico?alt=media&token=1d8a7ef2-e980-430b-98a8-880d16572e4f" />
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>
+</head>
+
+<img style="position:absolute; z-index:-1; object-fit: cover; width:100%; height:100%;" id="bgImageB" src="https://assets.awwwards.com/assets/images/nophoto.png">
+
+<body>
+    <!--=====================================
+    =            Hamburger Menu             =
+    ======================================-->
+    <nav role="navigation">
+        <div id="menuToggle">
+            <input type="checkbox" />
+            <span></span>
+            <span></span>
+            <span></span>
+            <ul id="menu">
+                <a onclick='window.top.location.href = "/Home";' class="clickable"><li>Entries</li></a>
+                <a onclick='window.top.location.href = "/Dashboard";' class="clickable"><li>Analysis</li></a>
+                <a onclick='window.top.location.href = "/People";' class="clickable"><li>People</li></a>
+                <a onclick='window.top.location.href = "/Relax";' class="clickable"><li>Relax</li></a>
+                <a onclick='window.top.location.href = "/Settings";' class="clickable"><li>Settings</li></a>
+                <a onclick='window.top.location.href = "/Register";' class="clickable"><li>Log Out</li></a>
+            </ul>
+        </div>
+    </nav>
+
+    <div id="hide">
+        <!--=====================================
+        =            Profile Circle             =
+        ======================================-->
+        <div class="container">
+            <div class="row">
+                <div class="profile-header-container">
+                    <div class="profile-header-img">
+                        <img class="img-circle" src="https://images-na.ssl-images-amazon.com/images/I/31yKg%2B0tevL._SX425_.jpg" />
+                        <!-- badge -->
+                        <div class="rank-label-container">
+                            <span id = "username" class="label label-default rank-label">user</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--=====================================
+        =          Profile Information          =
+        ======================================-->
+        <div class='comments'>
+                <div class='loader'></div>
+                <div class='inner' style="background-color:rgba(255, 255, 255, 0.82);">
+                    <div class="container">
+                        <div class="row">
+                            <p style="padding:15px; font-weight: bold; font-size:16pt;">Email: <span id = "email">null</span></p>         
+                            <div style="padding:15px; font-weight: bold; font-size:16pt;">
+                                Select primary color:
+                                <input style="border: none; border-radius: 8px;" type="color" id="pColor" name="pColor" value="#51D2B7">
+                            </div>
+                            <div style="padding:15px; font-weight: bold; font-size:16pt;">
+                                Select secondary color:
+                                <input style="border: none; border-radius: 8px;" type="color" id="sColor" name="sColor" value="#66b34e">
+                            </div>
+                            <div style="padding:15px; font-weight: bold; font-size:16pt;">
+                                URL for background image:
+                                <input style="width: 400px; margin-top: 10px;" class="form-control" type="text" id="bgElement" name="bgElement" value="Blank">
+                                <label style="border: solid; margin-top: 10px;" class="btn btn-default btn-file">
+                                    Browse <input id="fileInput1" style="display:none;" type="file"></input>
+                                </label>
+                                <button style="border: solid; margin-top: 10px;" class="btn" id="bgButton">Update</button>
+                            </div>
+                            <div style="padding:15px; font-weight: bold; font-size:16pt;">
+                                URL for profile image:
+                                <input style="width: 400px; margin-top: 10px;" class="form-control" type="text" id="profileElement" name="profileElement" value="Default">
+                                <label style="border: solid; margin-top: 10px;" class="btn btn-default btn-file">
+                                    Browse <input id="fileInput2" style="display:none;" type="file"></input>
+                                </label>
+                                <button style="border: solid; margin-top: 10px;" class="btn" id="profileButton">Update</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+
+    <script src="settings.js"></script>
+</body>
+</html>

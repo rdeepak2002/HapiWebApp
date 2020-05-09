@@ -1,0 +1,22 @@
+{
+	"name": "Hapi",
+	"version": "1.0.0",
+	"scripts": {
+		"start": "node server.js"
+	},
+	"dependencies": {
+		"async": "^2.6.1",
+		"async-each": "^1.0.1",
+		"body-parser": "^1.18.3",
+		"bootstrap-colorpicker": "^3.0.3",
+		"corenlp": "^1.4.3",
+		"corenlp-js-interface": "^1.0.3",
+		"express": "4.13.3",
+		"http": "0.0.0",
+		"python-shell": "^0.5.0",
+		"request": "^2.87.0",
+		"response": "^0.18.0"
+	},
+	"author": "Deepak Ramalingam",
+	"license": "ISC"
+}
