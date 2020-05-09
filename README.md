@@ -1,0 +1,2 @@
+# HapiWebApp
+Website for HapiDiary.
